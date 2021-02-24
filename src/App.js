@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
-import Search from "./Search";
+
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -54,8 +54,8 @@ export default function App() {
             <Forecast />
             
           </div>
-        </div>
-        <Search />
+          </div>
+      
              <Footer />
       </div>
     </div>
