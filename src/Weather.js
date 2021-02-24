@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
+import FormattedDate from "./FormattedDate";
 
-export default function Weather() {
+export default function Weather(props) {
+const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
+function handleResponse(response){
+  setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+
+}
+function search() {
+    const apiKey = `13e00c3ef52a0621f285898d17202748`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+
+    if (weatherData.ready) {
   return (
     <div className="Weather">
       <div className="currentlocation">
         <div className="row align-items-center">
           <div className="col-6">
             <h1 className="country" id="city-name">
-              Lisbon
+              {weatherData.city}
             </h1>
           </div>
           <div className="col-6">
             <div className="weathertoday">
-              <img src="" alt="Clear" id="icon" />
+              <img src={weatherData.icon} alt={weatherData.description} id="icon" />
             </div>
           </div>
         </div>
@@ -23,9 +49,9 @@ export default function Weather() {
             <div className="todaytemp">
               <span id="temperature"> </span>
               <span className="conversion">
-                <a href="#" id="celcius-link" class="active">
+                <a href="#" id="celcius-link" className="active">
                   {" "}
-                  °C{" "}
+                  {Math.round(weatherData.temperature)}°C{" "}
                 </a>{" "}
                 |
                 <a href="#" id="fahrenheit-link">
@@ -37,17 +63,17 @@ export default function Weather() {
           </div>
           <div className="col-6">
             <ul className="weathertoday">
-              <li className="weathertype" id="description">
-                Mist
+              <li>
+                {weatherData.description}
               </li>
               <li>
-                Humidity: <span id="humidity"></span>%
+                Humidity:{Math.round(weatherData.humidity)}%
               </li>
               <li>
-                Wind: <span id="wind"></span> km/h
+                Wind: {Math.round(weatherData.wind)}km/h
               </li>
               <li className="date" id="currentDate">
-                Monday 2nd October
+               <FormattedDate date ={weatherData.date}/>
               </li>
             </ul>
           </div>
@@ -55,4 +81,9 @@ export default function Weather() {
       </div>
     </div>
   );
+   } else {
+      search();
+   
+    return "Loading...";
+  }
 }

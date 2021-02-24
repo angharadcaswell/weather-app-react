@@ -9,11 +9,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
     <div className="App">
-      <div class="weather-app fullForecast">
+      <div className="weather-app fullForecast">
         <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <a
-              class="nav-item nav-link active todayTitle"
+              className="nav-item nav-link active todayTitle"
               id="nav-home-tab"
               data-toggle="tab"
               href="#nav-home"
@@ -24,7 +24,7 @@ export default function App() {
               Today's Weather
             </a>
             <a
-              class="nav-item nav-link"
+              className="nav-item nav-link"
               id="nav-profile-tab"
               data-toggle="tab"
               href="#nav-hours"
@@ -36,17 +36,17 @@ export default function App() {
             </a>
           </div>
         </nav>
-        <div class="tab-content weatherContent" id="nav-tabContent">
+        <div className="tab-content weatherContent" id="nav-tabContent">
           <div
-            class="tab-pane fade show active"
+            className="tab-pane fade show active"
             id="nav-home"
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
-            <Weather />
+            <Weather defaultCity="Berlin"/>
           </div>
           <div
-            class="tab-pane fade nextHours"
+            className="tab-pane fade nextHours"
             id="nav-hours"
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
