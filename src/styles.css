@@ -53,10 +53,10 @@ ul {
   padding: 20px;
 }
 
-.conversion {
+.unit {
   position: relative;
   font-size: 16px;
-  top: -25px;
+  top: -35px;
 }
 
 .active {
@@ -86,8 +86,8 @@ ul {
 .todaytemp {
   font-weight: bold;
   color: #424242;
-  text-align: center;
-  padding: 15px 0px 0px 0px;
+  text-align: left;
+  padding: 0px 0px 0px 0px;
   vertical-align: middle;
 }
 
