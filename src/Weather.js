@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 
 export default function Weather(props) {
@@ -41,8 +42,42 @@ function search() {
     if (weatherData.ready) {
   return (
     <div className="Weather">
-      <WeatherInfo data={weatherData} />   
-      <form onSubmit={handleSubmit}>
+      
+<nav>
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+            <a
+              className="nav-item nav-link active todayTitle"
+              id="nav-home-tab"
+              data-toggle="tab"
+              href="#nav-home"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              Today's Weather
+            </a>
+            <a
+              className="nav-item nav-link"
+              id="nav-profile-tab"
+              data-toggle="tab"
+              href="#nav-hours"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              Next 18 hours
+            </a>
+          </div>
+        </nav>
+        <div className="tab-content weatherContent" id="nav-tabContent">
+          <div
+            className="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+             <WeatherInfo data={weatherData} /> 
+             <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
@@ -62,6 +97,17 @@ function search() {
             </div>
           </div>
         </form>
+          </div>
+          <div
+            className="tab-pane fade nextHours"
+            id="nav-hours"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <Forecast />
+            
+          </div>
+          </div>
     </div>
   );
    } else {
