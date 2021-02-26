@@ -12,5 +12,18 @@ body {
 
 .forecastRow:hover {
   background: #fff;
-  border-radius: 50px;
+  border-radius: 20px;
+}
+
+.WeatherForecast {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.WeatherForecast canvas {
+  display: block;
+}
+
+.WeatherForecastPreview {
+  background-color: rgb(159, 172, 230, 0.6);
 }

@@ -17,18 +17,15 @@ export default function WeatherForecastPreview(props) {
 
 
 <div className="weather-forecast-temperature" id="forecast">
-  <div className="row forecastRow align-items-center">
-                    <div className="col-4">
-                     {formatDay()}
-                    </div>
-                    <div className="col-4">
-                        <strong>{Math.round(props.data.temp.min)}</strong>° / {Math.round(props.data.temp.max)}°{" "}
-                    </div>
-                    <div className="col-4">
-                        <WeatherIcon code={props.data.weather[0].icon} />
-                    </div>
-                </div>
-                 </div> 
+
+                        <div className="WeatherForecastPreview col">
+            <strong>{formatDay()}</strong>
+            <WeatherIcon code={props.data.weather[0].icon} />
+            <div className="minMax">
+        <strong>{Math.round(props.data.temp.min)}</strong>° / {Math.round(props.data.temp.max)}°{" "}
+                            </div>
+            </div>
+                        </div> 
                  
   );
 }
