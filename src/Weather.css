@@ -1,0 +1,43 @@
+body {
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+.nextHours img {
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+  width: 48px;
+}
+
+.fullForecast {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #424242;
+  font-family: "Cantarell", sans-serif;
+  color: #5b6273;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.todayTitle {
+  font-weight: bold;
+  font-size: 15px;
+  color: #424242;
+}
+
+.weatherContent {
+  background-color: #74ebd5;
+  margin: 10px;
+  padding: 20px;
+}
+
+.active {
+  color: #424242;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  cursor: default;
+}

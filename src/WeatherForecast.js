@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles.css";
+
 import axios from "axios";
 import WeatherForecastPreview from "./WeatherForecastPreview";
 
@@ -25,7 +25,7 @@ export default function WeatherForecast(props) {
   if (loaded && props.lat === forecastData.lat) {
     return (
       <div className="WeatherForecast row">
-        <WeatherForecastPreview data={forecastData.daily[0]} />
+
         <WeatherForecastPreview data={forecastData.daily[1]} />
         <WeatherForecastPreview data={forecastData.daily[2]} />
         <WeatherForecastPreview data={forecastData.daily[3]} />

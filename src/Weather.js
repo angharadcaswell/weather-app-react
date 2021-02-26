@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles.css";
+
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import "./Weather.css";
 
 
 export default function Weather(props) {
@@ -67,7 +68,7 @@ function search() {
               aria-controls="nav-profile"
               aria-selected="false"
             >
-              Next 18 hours
+              5 Day Forecast
             </a>
           </div>
         </nav>
@@ -101,7 +102,7 @@ function search() {
         </form>
           </div>
           <div
-            className="tab-pane fade nextHours"
+            className="tab-pane fade"
             id="nav-hours"
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
