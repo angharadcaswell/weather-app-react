@@ -3,7 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import WeatherInfo from "./WeatherInfo";
-import Forecast from "./Forecast";
+import WeatherForecast from "./WeatherForecast";
 
 
 export default function Weather(props) {
@@ -20,6 +20,8 @@ function handleResponse(response){
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
 
 }
@@ -104,7 +106,7 @@ function search() {
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
           >
-            <Forecast />
+            <WeatherForecast lat={weatherData.lat} lon={weatherData.lon}/>
             
           </div>
           </div>

@@ -1,0 +1,16 @@
+body {
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+.forecastRow {
+  background-color: rgb(159, 172, 230, 0.6);
+  border-radius: 20px;
+  padding: 5px 5px;
+  margin: 10px 10px;
+  text-align: center;
+}
+
+.forecastRow:hover {
+  background: #fff;
+  border-radius: 50px;
+}
